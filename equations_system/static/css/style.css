@@ -1,7 +1,11 @@
+@font-face {
+    font-family: teenspir;
+    src: url(../fonts/teenspir.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: "Lato", sans-serif;
     overflow: hidden;
 }
 
@@ -9,20 +13,23 @@ header {
     width: 100vw;
     height: 130px;
     background-image: url("../img/xYiTisbsp2HZPVupAZoNYQ-320-80.jpg");
-    /*background-size: cover;*/
-    color: yellow;
+    background-size: contain;
+    color: white;
 }
 
 header > *, footer > *{
     margin: 0;
     padding: 0;
+    font-family: "teenspir";
 }
 
 
 footer {
     width: 100vw;
     height: 100px;
-    background: aqua;
+    background-image: url("../img/header_mathlearningcenter_1549x560.jpeg");
+    background-size: contain;
+    color: white;
 }
 
 .block-body{
@@ -36,17 +43,23 @@ footer {
     padding: 0;
     height: calc(100vh - 230px);
     width: 100vw;
-    background: brown;
+    background-image: url("../img/navbar_back.jpg");
+    background-size:  20%, contain;
 }
 
 .navbar {
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: yellow;
+    background-image: url("../img/navbar_back.jpg");
+    background-size: contain;
+    /*background-position: -20% 0;*/
+    /*object-fit: cover;*/
     position: fixed;
     height: calc(100vh - 230px);
     overflow: auto;
+    font-family: "teenspir";
+    font-size: 25px;
 }
 
 .sidebar {
@@ -55,7 +68,7 @@ footer {
     padding: 0;
 }
 
-.sidebar > li > a {
+.nav-btn {
     display: block;
     color: black;
     padding: 16px;
@@ -63,9 +76,11 @@ footer {
     text-align: center;
 }
 
-.sidebar a:hover {
-    background-color: #555;
-    color: white;
+.active, .nav-btn:hover {
+    background-image: url("../img/navbar_hover.png");
+    background-size: 120%, 70%;
+    background-position: -16% 5%;
+    box-shadow: 0 0 15px 4px white inset;
 }
 
 

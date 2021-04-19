@@ -1,8 +1,12 @@
+{% url 'home' as home %}
+{% url 'about' as about %}
+{% url 'solve' as solve %}
+{% url 'help' as help %}
 <nav class="navbar">
     <ul class="sidebar">
-        <li><a href="/equations_system/home">Home</a></li>
-        <li><a href="/solve">Solve</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/help">Help</a></li>
+        <li><a href="{% url 'home' %}" class="nav-btn {% if request.path == home %}active{% endif %}">Home</a></li>
+        <li><a href="{% url 'solve' %}" class="nav-btn {% if request.path == solve %}active{% endif %}">Solve</a></li>
+        <li><a href="{% url 'about' %}" class="nav-btn {% if request.path == about %}active{% endif %}">About</a></li>
+        <li><a href="{% url 'help' %}" class="nav-btn {% if request.path == help %}active{% endif %}">Help</a></li>
     </ul>
 </nav>

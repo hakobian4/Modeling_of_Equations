@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'durationwidget',
     'equations_system',
+    'active_link',
 ]
 
 MIDDLEWARE = [

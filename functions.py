@@ -123,3 +123,8 @@ def solve_equations(equation):
     print(equations,'\n',values)
     sympy_result = sympy_method(equations, values, symbols)
     print("sympy result: ", sympy_result)
+    data = {}
+    for key in sympy_result:
+        data[str(key)] = sympy_result[key]
+    print("DATA", data)
+    return data
