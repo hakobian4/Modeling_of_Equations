@@ -21,5 +21,15 @@
 
 <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 <script src="../static/js/graph.js"></script>
+{#<script>#}
+{#var form_count = {{formset.total_form_count}};#}
+{#$('#add_form').click(function() {#}
+{#    var new_form = '{{formset.empty_form|escapejs}}'.replace(/__prefix__/g, form_count);#}
+{#    $('#forms').append(new_form)#}
+{#    form_count++;#}
+{#    $('#id_form-TOTAL_FORMS').val(form_count);#}
+{#    console.log(form_count)#}
+
+{#</script>#}
 </body>
 </html>

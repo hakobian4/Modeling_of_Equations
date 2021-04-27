@@ -1,14 +1,41 @@
 {% extends "index.html" %}
 
 {% block body %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div id="inputs">{{ form.as_p }}</div>
+    {#    <form style="height: 100%; width: 100%" method="POST" enctype="multipart/form-data">#}
 
-    <button type="submit">Submit form</button>
-    {% for key, values in text.items %}
-        <h2>{{ key }}={{ values }}</h2>
-    {% endfor %}
-    <div id="calculator" style="width: 600px; height: 400px;"></div>
-</form>
+    <div class="solve">
+        <form id="form1" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="eq-content">
+                <div id="formAlumnoContent" class="equation">
+                    {{ form.management_form }}
+                    {% for f in form %}
+                        {{ f.as_p }}
+                    {% endfor %}
+                </div>
+                <div class="answers">
+                    {% for key, values in text.items %}
+                        <h2>{{ key }}={{ values }}</h2>
+                    {% endfor %}
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <button onclick="addInput()">Add</button>
+        <button onclick="deleteInput()">Delete</button>
+        {#            <div class="graphic" id="calculator"></div>#}
+        <button type="button" onclick="onGraph()" id="graphId">Hide Graphic</button>
+    </div>
+
+    {#    <form id="myForm" method="POST" action="" enctype="multipart/form-data">#}
+    {#    {% csrf_token %}#}
+    {#    <div id="forms">#}
+    {#        {% for form in formset %}#}
+    {#            {{ form.as_p }}#}
+    {#        {% endfor %}#}
+    {#    </div>#}
+    {#    {{ formset.management_form }}#}
+    {#    <a href="javascript:void(0)" id="add_form">Add Another Form</a>#}
+    {#   <button type="submit" class="btn btn-block btn-primary">SUBMIT</button>#}
+    {#</form>#}
 {% endblock %}

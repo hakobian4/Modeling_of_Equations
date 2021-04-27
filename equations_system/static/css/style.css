@@ -37,14 +37,17 @@ footer {
     width: calc(100vw - 240px);
     margin-left: 200px;
     padding: 20px;
+    overflow-y: auto;
+    border-left: 2px solid rgba(255, 0, 0, 0.7);
 }
+
 .content {
     margin: 0;
     padding: 0;
     height: calc(100vh - 230px);
     width: 100vw;
     background-image: url("../img/navbar_back.jpg");
-    background-size:  20%, contain;
+    background-size:  200px, contain;
 }
 
 .navbar {
@@ -84,7 +87,77 @@ footer {
 }
 
 
-@media screen and (max-width: 700px) {
+/*#region Solve*/
+
+.solve{
+    display: grid;
+    min-height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: calc(100% - 431px) 421px;
+    grid-row-gap: 10px;
+    overflow-y: auto;
+
+
+
+}
+
+.graphic{
+    width: 600px;
+    height: 400px;
+    visibility: hidden;
+}
+
+.eq-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+}
+.answers{
+    margin-left: 30px;
+    margin-top: -10px;
+}
+
+.graph-content{
+    height: 100%;
+    width: 100%;
+}
+
+.buttons{
+    margin: 1em 0 1em;
+
+}
+
+#form1{
+    width: 100%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 50px;
+}
+
+.btn-solve{
+    height: 20px;
+    width: 100px;
+}
+
+/*.dcg-exppanel-outer{*/
+/*    width: 200px !important;*/
+/*}*/
+/*.dcg-grapher{*/
+/*    left: 200px !important;*/
+/*    width: 250px !important;*/
+/*}*/
+
+/*.dcg-graph-inner{*/
+/*    width: 250px !important;*/
+/*}*/
+/*#endregion*/
+
+
+@media screen and (max-width: 840px) {
     .navbar {
         width: 100vw;
         height: 50px;

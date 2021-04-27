@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="solve">
+        <div class="eq-content">
+            <form id="form1" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="formContent">
+                    {{ form.management_form }}
+                    {% for f in form %}
+                        {{ f.as_p }}
+                    {% endfor %}
+                </div>
+                <div class="answers">
+                    {% for key, values in text.items %}
+                        <h2>{{ key }}={{ values }}</h2>
+                    {% endfor %}
+                </div>
+                <button class="btn-solve" type="submit">Solve</button>
+
+            </form>
+            <div class="buttons">
+                <button onclick="addInput()">Add</button>
+                <button onclick="deleteInput()">Delete</button>
+            </div>
+        </div>
+        <div class="graph-content">
+            <div class="graphic" id="calculator"></div>
+            <button type="button" onclick="onGraph()" id="graphId">Show Graphic</button>
+        </div>
+    </div>
+{% endblock %}
