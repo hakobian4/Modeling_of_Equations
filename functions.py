@@ -1,6 +1,8 @@
 import sympy as sym
 import numpy as np
 import time, re
+import pdfkit
+from sympy import log, sqrt, E, pi
 
 
 
@@ -8,13 +10,18 @@ def create_variables(equations):
     variables = []
     for equation in equations:
         variables.append(re.findall('[a-z]', equation))
+    print('var1', variables)
     variables = np.concatenate(variables)
+    print('var2', variables)
+
     variables = np.unique(variables)
+    print('var3', variables)
+
     symbol_variables=[]
     for variable in variables:
         globals()[variable] = sym.symbols(variable)
         symbol_variables.append(globals()[variable])
-
+    print("symbol_variables", symbol_variables)
     return symbol_variables
 
 
@@ -32,17 +39,15 @@ def check_equations_validation(equations):
 
     symbols = create_variables(equations)
     equals = []
-    asterisk = []
     for equation in equations:
         equals.append((re.findall("=", equation)).count('='))
-        asterisk.append((re.findall("[*]", equation)).count('*'))
-
+        # asterisk.append((re.findall("[*]", equation)).count('*'))
+        equation.replace('**', '^')
+        equation.replace('*', '')
     if len(symbols) > len(equations):
         raise Exception("Your variables' number is not equal to equations' number.")
     elif np.prod(equals) != 1:
         raise Exception("Please check Your equations.")
-    elif sum(asterisk) != 0:
-        raise Exception("Please check Your equations. There are '*' symbols")
     else:
         return symbols
 
@@ -52,7 +57,10 @@ def add_asterisks(equations):
 
     for i in range(len(equations)):
         equation = re.sub(re.compile(r'\s+'), '', equations[i])
+        print("eq", equation)
         equation = list(equation)
+        print("eqlist", equation)
+
         result = equation[0]
         for pos in range(len(equation) - 1):
 
@@ -118,13 +126,30 @@ def solve_equations(equation):
 
     symbols = check_equations_validation(equation)
     c = add_asterisks(equation)
-    print(c)
+    # print(c)
     equations, values = convert_to_solving_mode(c)
     print(equations,'\n',values)
     sympy_result = sympy_method(equations, values, symbols)
     print("sympy result: ", sympy_result)
-    data = {}
-    for key in sympy_result:
-        data[str(key)] = sympy_result[key]
+    data = []
+
+    if str(type(sympy_result)) == "<class 'dict'>":
+        data.append(sympy_result)
+    else:
+
+        data = sympy_result
+
+    print(data)
+    for res in data:
+        for key, values in res.items():
+            res[key] = round(float(res[key]), 3)
     print("DATA", data)
     return data
+
+
+#num2str
+#str2num
+#simplify
+
+#re.findall("[√(]+\d+[,]+\d+[)]", a)
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: brown">
+<img alt="" style="width: 20cm; height: auto" src="D:\Armen\diplom_django\modeling_equations\equations_system\static\img\pdf_header.png">
+<table style="border: 1px solid seagreen; margin-top: 30px">
+    <tr>
+        <th style="padding: 10px 10px 0 10px; font-size: 23px">Equations</th>
+        <th style="padding: 10px 10px 0 10px; font-size: 23px">Answers</th>
+    </tr>
+    <tr style="padding: 10px">
+        <th>
+            {% for equation in equations %}
+                <p style="font-size: 18px; color: #15366D">{{ equation }}</p>
+            {% endfor %}
+        </th>
+        <th>
+            {% for answer in answers %}
+                <p style="font-size: 18px; color: #15366D">
+                    {% for key, values in answer.items %}
+                        <span>  {{ key }}={{ values }}:  </span>
+                    {% endfor %}
+                </p>
+            {% endfor %}
+        </th>
+    </tr>
+</table>
+</body>
+</html>

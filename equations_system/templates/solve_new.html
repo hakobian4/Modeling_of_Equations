@@ -12,21 +12,49 @@
                     {% endfor %}
                 </div>
                 <div class="answers">
-                    {% for key, values in text.items %}
-                        <h2>{{ key }}={{ values }}</h2>
+                    {% for res in text %}
+                        <p>
+                            {% for key, values in res.items %}
+                                <span>{{ key }}={{ values }}</span>
+                            {% endfor %}
+                        </p>
                     {% endfor %}
                 </div>
-                <button class="btn-solve" type="submit">Solve</button>
-
+                <div class="buttons">
+                    <div>
+                        <button class="add-btn"  onclick="addInput()"><img alt="" src="../static/img/add.svg">Add
+                        </button>
+                        <button class="del-btn" type="button" onclick="deleteInput()"><img alt="" src="../static/img/minus.svg">Delete
+                        </button>
+                        <button class="clear-btn" onclick="clearInput()" type="submit"><img alt=""
+                                                                                            src="../static/img/clear.svg">Clear
+                        </button>
+                    </div>
+                    <button class="solve-btn" type="submit"><img alt="" src="../static/img/solve.svg">Solve</button>
+                </div>
             </form>
-            <div class="buttons">
-                <button onclick="addInput()">Add</button>
-                <button onclick="deleteInput()">Delete</button>
+
+            <div class="func-btns">
+                <div>
+                    <button onclick="nthsquarerootInput()"><span class="math display">\[\sqrt[n]{x}\]</span></button>
+                    <button onclick="squarerootInput()"><span class="math display">\[\sqrt{x}\]</span></button>
+                    <button onclick="degreeInput()"><span class="math display">\[x^n\]</span></button>
+                    <button onclick="exponentInput()"><span class="math display">\[n^x\]</span></button>
+                    <div></div>
+                    <button onclick="logInput()"><span class="math display">\[\log_a b\]</span></button>
+                    <button onclick="piInput()"><span class="math display">\[\pi\]</span></button>
+                    <button onclick="eInput()"><span class="math display">e</span></button>
+                </div>
+                <a class="pdf-btn" href="{% url "crPdf" %}">
+                    <img alt="" src="../static/img/pdf.svg">
+                    <p>Download PDF</p>
+                </a>
+
             </div>
         </div>
         <div class="graph-content">
             <div class="graphic" id="calculator"></div>
-            <button type="button" onclick="onGraph()" id="graphId">Show Graphic</button>
+            <button class="graph-btn" type="button" onclick="onGraph()" id="graphId"><img alt="" src="../static/img/graph.svg"><span>Show Graphic</span></button>
         </div>
     </div>
 {% endblock %}

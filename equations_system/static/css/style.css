@@ -3,6 +3,11 @@
     src: url(../fonts/teenspir.ttf);
 }
 
+@font-face {
+    font-family: Arista;
+    src: url(../fonts/Arista.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -15,25 +20,34 @@ header {
     background-image: url("../img/xYiTisbsp2HZPVupAZoNYQ-320-80.jpg");
     background-size: contain;
     color: white;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arista, serif;
 }
 
-header > *, footer > *{
+header > *, footer > * {
     margin: 0;
     padding: 0;
-    font-family: "teenspir";
 }
 
 
 footer {
     width: 100vw;
-    height: 100px;
+    height: 60px;
     background-image: url("../img/header_mathlearningcenter_1549x560.jpeg");
-    background-size: contain;
+    background-size: 350px, contain;
     color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    font-family: "Number Cruncher", serif;
 }
 
-.block-body{
-    height: calc(100vh - 270px);
+/*#region Main*/
+.block-body {
+    height: calc(100vh - 230px);
     width: calc(100vw - 240px);
     margin-left: 200px;
     padding: 20px;
@@ -44,10 +58,11 @@ footer {
 .content {
     margin: 0;
     padding: 0;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 190px);
     width: 100vw;
     background-image: url("../img/navbar_back.jpg");
-    background-size:  200px, contain;
+    background-size: 200px, contain;
+    overflow: hidden;
 }
 
 .navbar {
@@ -55,13 +70,13 @@ footer {
     padding: 0;
     width: 200px;
     background-image: url("../img/navbar_back.jpg");
-    background-size: contain;
+    background-size: 200px, contain;
     /*background-position: -20% 0;*/
     /*object-fit: cover;*/
     position: fixed;
     height: calc(100vh - 230px);
     overflow: auto;
-    font-family: "teenspir";
+    font-family: teenspir, serif;
     font-size: 25px;
 }
 
@@ -86,61 +101,186 @@ footer {
     box-shadow: 0 0 15px 4px white inset;
 }
 
+/*#endregion*/
 
 /*#region Solve*/
 
-.solve{
+.solve {
     display: grid;
     min-height: 100%;
     width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: calc(100% - 431px) 421px;
+    grid-template-rows: calc(100% - 440px) auto;
     grid-row-gap: 10px;
-    overflow-y: auto;
-
+    /*overflow-y: auto;*/
 
 
 }
 
-.graphic{
+.graphic {
     width: 600px;
     height: 400px;
     visibility: hidden;
 }
 
-.eq-content{
+.graph-btn {
+    padding: 3px 5px 3px 5px;
+    border: 1px black solid;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #db6a24;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+.graph-btn > img {
+    height: 20px;
+    margin-right: 3px;
+}
+
+.eq-content {
     display: flex;
     flex-direction: row;
     justify-content: start;
     width: 100%;
     height: 100%;
 }
-.answers{
-    margin-left: 30px;
-    margin-top: -10px;
+
+.answers > p > span {
+    font-size: 17px;
+    color: #17400c;
 }
 
-.graph-content{
+/*.answers > p{*/
+/*    margin: 0;*/
+/*}*/
+
+.graph-content {
     height: 100%;
     width: 100%;
+    transition: 0.5s;
 }
 
-.buttons{
-    margin: 1em 0 1em;
+.buttons {
+    /*margin: 1em 0 1em;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.buttons > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.buttons > div > button {
+    padding: 3px 5px 3px 5px;
+    border: 1px black solid;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-btn {
+    background-color: #4fae4c;
+    margin-right: 3px;
+}
+
+.del-btn {
+    background-color: #f74545;
+    margin-right: 3px;
 
 }
 
-#form1{
-    width: 100%;
+.clear-btn {
+    color: red !important;
+}
+
+.buttons > div > button > img {
+    height: 20px;
+    margin-right: 3px;
+}
+
+#form1 {
+    width: calc(100% - 230px);
     height: 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 50px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 65px;
 }
 
-.btn-solve{
+.solve-btn {
+    margin-top: 5px;
+    width: 205px;
+    padding: 3px 5px 3px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solve-btn > img {
     height: 20px;
-    width: 100px;
+    margin-right: -5px;
+}
+
+.pdf-btn {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    height: min-content;
+    width: min-content;
+    margin-left: auto;
+    margin-right: 7px;
+}
+
+.pdf-btn > img {
+    height: 30px;
+}
+
+.pdf-btn > p {
+    margin: 0;
+}
+
+.pdf-btn:hover {
+    transition: 0.3s;
+    color: red;
+}
+
+.func-btns {
+    height: 153px;
+    width: 230px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+}
+
+.func-btns > div {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+
+.func-btns > div > button {
+    height: 35px;
+    width: 50px;
+    margin: 0;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+.func-btns > div > button > span > span:nth-child(2) {
+    margin: 0;
 }
 
 /*.dcg-exppanel-outer{*/
@@ -158,39 +298,131 @@ footer {
 
 
 @media screen and (max-width: 840px) {
+    /*#region Main*/
     .navbar {
         width: 100vw;
-        height: 50px;
+        height: 64px;
         position: relative;
+        /*background-size:  200px, contain;*/
     }
 
-    .sidebar > li > a {
+    .nav-btn {
         float: left;
+        width: 90px;
+    }
+
+    .active, .nav-btn:hover {
+        background-size: 200%, 70%;
+        background-position: -20% 3%;
     }
 
     .content {
         margin-left: 0;
+        width: 100vw;
     }
 
-    .block-body{
+    .block-body {
         padding: 15px;
         margin-left: 0;
-        height: calc(100vh - 310px);
+        height: calc(100vh - 284px);
         width: calc(100vw - 30px);
+        border-top: 2px solid rgba(255, 0, 0, 0.7);
+        border-left: none;
+
     }
+
+
+    /*#endregion*/
+    .eq-content {
+        width: calc(100vw - 30px);
+
+        flex-direction: column;
+    }
+
+    #form1 {
+        order: 2;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .func-btns {
+        height: 70px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-top: 15px;
+        order: 1;
+    }
+
+    .func-btns > div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .func-btns > div > button {
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .func-btns > div > div {
+        display: none;
+    }
+
+    .answers {
+        text-align: center;
+    }
+
+    .graphic {
+        width: 100%;
+        height: 300px;
+    }
+
 }
 
-@media screen and (max-width: 400px) {
-    .navbar{
-        height: 200px;
+@media screen and (max-width: 520px) {
+    .navbar {
+        height: 256px;
+        overflow: hidden;
     }
+    .nav-btn{
+        width: 100%;
+    }
+
+    .active, .nav-btn:hover {
+        background-size: 240px, contain;
+        background-position: 6px 3px;
+    }
+
     .sidebar > li > a {
         text-align: center;
         float: none;
+
     }
-    .block-body{
+
+    .block-body {
         padding: 10px;
-        height: calc(100vh - 450px);
+        height: calc(100vh - 468px);
         width: calc(100vw - 20px);
+    }
+
+    #form1 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .func-btns {
+        height: auto;
+    }
+
+    .answers {
+        text-align: left;
+        order: 3;
     }
 }

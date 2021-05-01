@@ -2,4 +2,8 @@
 
 {% block body %}
     <h2>Wellcome to Home</h2>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <button type="submit">pdf</button>
+    </form>
 {% endblock %}
